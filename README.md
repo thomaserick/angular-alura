@@ -11,3 +11,8 @@ JsonServer global
 JsonServer Start
 
 - json-server --watch db.json
+
+### Comandos
+
+- ng g m -d
+  - nao cria o arquivo apenas uma pré visualização dryRun
