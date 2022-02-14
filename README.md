@@ -2,6 +2,10 @@
 
 Curso Angular Alura
 
+
+- ?.
+  - Save navegation do ts
+
 ## Dependencias
 
 JsonServer global
@@ -11,6 +15,8 @@ JsonServer global
 JsonServer Start
 
 - json-server --watch db.json
+
+
 
 ### Comandos
 
