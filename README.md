@@ -16,6 +16,9 @@ JsonServer Start
 
 - json-server --watch db.json
 
+Jwt
+- npm i jwt-decode
+
 
 
 ### Comandos
