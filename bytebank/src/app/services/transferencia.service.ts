@@ -8,6 +8,7 @@ import { Transferencia } from '../model/transferencia';
 })
 export class TransferenciaService {
   private listaTrasferencia: any[];
+
   private url = 'http://localhost:3000/transferencias';
 
   constructor(private httpClient: HttpClient) {
