@@ -6,7 +6,7 @@ import { UsuarioService } from './usuario/usuario.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AutenticacaoGuard implements CanLoad {
+export class LoginGuard implements CanLoad {
   constructor(
     private readonly usuarioService: UsuarioService,
     private readonly router: Router
@@ -20,10 +20,11 @@ export class AutenticacaoGuard implements CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (!this.usuarioService.estaLogado()) {
-      this.router.navigateByUrl('');
+    if (this.usuarioService.estaLogado()) {
+      this.router.navigateByUrl('animais');
       return false;
     }
+
     return true;
   }
 }
