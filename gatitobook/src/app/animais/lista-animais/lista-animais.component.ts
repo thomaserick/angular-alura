@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
+import { ActivatedRoute } from '@angular/router';
 import { Animais } from '../animais';
-import { AnimaisService } from '../animais.service';
 
 @Component({
   selector: 'app-lista-animais',
@@ -11,27 +8,13 @@ import { AnimaisService } from '../animais.service';
   styleUrls: ['./lista-animais.component.css'],
 })
 export class ListaAnimaisComponent implements OnInit {
-  animais$!: Observable<Animais>;
+  animais!: Animais;
 
-  constructor(
-    private readonly usuarioService: UsuarioService,
-    private readonly animaisService: AnimaisService
-  ) {}
+  constructor(private readonly activatedRouter: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // Moda Raiz
-    // this.usuarioService.retornaUsuario().subscribe((usuario) => {
-    //   const userName = usuario.name ?? '';
-    //   this.animaisService.listaDoUsuario(userName).subscribe((data) => {
-    //     this.animais = data;
-    //   });
-    // });
-
-    this.animais$ = this.usuarioService.retornaUsuario().pipe(
-      switchMap((usuario) => {
-        const userName = usuario.name ?? '';
-        return this.animaisService.listaDoUsuario(userName);
-      })
-    );
+    this.activatedRouter.params.subscribe((param) => {
+      this.animais = this.activatedRouter.snapshot.data['animais'];
+    });
   }
 }
