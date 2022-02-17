@@ -9,6 +9,7 @@ import { ComentariosComponent } from './detalhe-animal/comentarios/comentarios.c
 import { DetalheAnimalComponent } from './detalhe-animal/detalhe-animal.component';
 import { GradeFotosAnimaisComponent } from './grade-fotos-animais/grade-fotos-animais.component';
 import { ListaAnimaisComponent } from './lista-animais/lista-animais.component';
+import { NovoAnimalComponent } from './novo-animal/novo-animal.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ListaAnimaisComponent } from './lista-animais/lista-animais.component';
     GradeFotosAnimaisComponent,
     DetalheAnimalComponent,
     ComentariosComponent,
+    NovoAnimalComponent,
   ],
   imports: [
     CommonModule,
