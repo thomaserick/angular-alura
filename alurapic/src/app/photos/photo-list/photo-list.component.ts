@@ -10,6 +10,7 @@ import { PhotoService } from '../photo/photo.service';
 })
 export class PhotoListComponent implements OnInit {
   photos!: Photos;
+  filter: string = '';
 
   constructor(
     private readonly _photoService: PhotoService,
@@ -22,5 +23,9 @@ export class PhotoListComponent implements OnInit {
     this._photoService.listFromUser(userName).subscribe((photos) => {
       this.photos = photos;
     });
+  }
+
+  doFilter(event: { target: HTMLInputElement }) {
+    this.filter = event.target.value;
   }
 }
