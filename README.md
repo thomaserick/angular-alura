@@ -1,6 +1,6 @@
 # angular-alura
 
-Curso Angular Alura
+Cursos Angular Alura
 
 
 - ?.
