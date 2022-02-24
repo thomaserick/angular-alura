@@ -1,0 +1,15 @@
+<div class="text-center mt-3 mb-3">
+  <form>
+    <div class="form-group">
+      <i aria-hidden="true" class="fa fa-search mr-2"></i>
+      <input
+        type="search"
+        class="rounded"
+        placeholder="search..."
+        autofocus
+        (keyup)="doFilter($any($event))"
+        [value]="value"
+      />
+    </div>
+  </form>
+</div>
