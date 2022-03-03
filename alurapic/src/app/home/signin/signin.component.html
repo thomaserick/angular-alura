@@ -1,18 +1,18 @@
 <h4 class="text-center">Login</h4>
 
-<form [formGroup]="loginForm" class="form mt-4">
+<form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
     <div class="form-group">
-        <input class="form-control" placeholder="Usuário" autofocus formControlName="userName" />
-        
-        <app-vmessage  *ngIf="loginForm.get('userName')?.errors?.['required']" text="Usuário
-        obrigatorio!" ></app-vmessage>
-       
+        <input #userNameInput class="form-control" placeholder="Usuário" autofocus formControlName="userName" />
+
+        <app-vmessage *ngIf="loginForm.get('userName')?.errors?.['required']" text="Usuário
+        obrigatorio!"></app-vmessage>
+
     </div>
 
     <div class="form-group">
-        <input type="password" class="form-control" placeholder="senha" formControlName="password" />        
-        <app-vmessage  *ngIf="loginForm.get('password')?.errors?.['required']" text="Senha
-        obrigatoria!" ></app-vmessage>                    
+        <input type="password" class="form-control" placeholder="senha" formControlName="password" />
+        <app-vmessage *ngIf="loginForm.get('password')?.errors?.['required']" text="Senha
+        obrigatoria!"></app-vmessage>
     </div>
 
     <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
