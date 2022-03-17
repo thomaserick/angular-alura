@@ -14,8 +14,8 @@ export class TokenService {
     window.localStorage.setItem(KEY, token);
   }
 
-  getToken(): string | null {
-    return window.localStorage.getItem(KEY);
+  getToken(): string {
+    return window.localStorage.getItem(KEY) || '';
   }
 
   removeToken(): void {
