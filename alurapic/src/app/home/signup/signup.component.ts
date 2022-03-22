@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { lowerCaseValidator } from 'src/app/shared/validators/lower-case.validator';
@@ -11,8 +17,9 @@ import { UserNotTakeValidatorService } from './user-not-taken.validator.service'
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, AfterViewInit {
   signupForm!: FormGroup;
+  @ViewChild('emailInput') emailInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -20,6 +27,9 @@ export class SignupComponent implements OnInit {
     private readonly sinupService: SignupService,
     private readonly router: Router
   ) {}
+  ngAfterViewInit(): void {
+    this.emailInput.nativeElement.focus();
+  }
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({

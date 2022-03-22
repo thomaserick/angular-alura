@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
@@ -9,7 +15,7 @@ import { PlatformDetectorService } from 'src/app/core/platform-detector/platform
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit, AfterViewInit {
   loginForm!: FormGroup;
   @ViewChild('userNameInput') userNameInput!: ElementRef<HTMLInputElement>;
 
@@ -19,6 +25,11 @@ export class SigninComponent implements OnInit {
     private router: Router,
     private readonly platformDetectionService: PlatformDetectorService
   ) {}
+
+  ngAfterViewInit(): void {
+    this.platformDetectionService.isPlatformBrowser() &&
+      this.userNameInput.nativeElement.focus();
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuild.group({
