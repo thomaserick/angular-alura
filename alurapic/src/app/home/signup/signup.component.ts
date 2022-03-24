@@ -16,6 +16,7 @@ import { UserNotTakeValidatorService } from './user-not-taken.validator.service'
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
+  providers: [UserNotTakeValidatorService],
 })
 export class SignupComponent implements OnInit, AfterViewInit {
   signupForm!: FormGroup;
