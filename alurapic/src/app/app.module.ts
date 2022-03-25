@@ -13,7 +13,7 @@ import { SharedModule } from './shared/shared.module';
     PhotosModule,
     SharedModule,
     CoreModule,
-    AppRoutingModule,
+    AppRoutingModule,    
   ],
   providers: [],
   bootstrap: [AppComponent],
