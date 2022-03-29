@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CardComponent } from './components/card/card.component';
 import { VmessageComponent } from './components/vmessage/vmessage.component';
 import { DarkenOnHoverDirective } from './directives/darken-on-hover/darken-on-hover.directive';
+import { ImmediateClickDirective } from './directives/immediate-click/immediate-click.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
@@ -11,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CardComponent,
     DarkenOnHoverDirective,
     VmessageComponent,
+    ImmediateClickDirective,
   ],
   imports: [CommonModule],
   exports: [
@@ -18,6 +20,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NotFoundComponent,
     DarkenOnHoverDirective,
     VmessageComponent,
+    ImmediateClickDirective,
   ],
 })
 export class SharedModule {}

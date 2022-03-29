@@ -8,6 +8,12 @@ import { PhotoFormComponent } from './photo-form.component';
 
 @NgModule({
   declarations: [PhotoFormComponent],
-  imports: [CommonModule, ReactiveFormsModule, SharedModule,PhotoModule,RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    SharedModule,
+    PhotoModule,
+    RouterModule,
+  ],
 })
 export class PhotoFormModule {}
