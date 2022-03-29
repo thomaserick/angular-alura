@@ -1,7 +1,7 @@
 <div class="container">
-    <form [formGroup]="photoForm" class="row">
+    <form [formGroup]="photoForm" class="row" (submit)="upload()">
         <div class="col-md-6 text-center">
-            <input type="file" formControlName="file" accept="image/*">
+            <input type="file" formControlName="file" accept="image/*" (change)="onChange($event)">
             <app-vmessage text="Por favor, selecione a foto!" *ngIf="photoForm.get('file')?.errors?.['required']">
             </app-vmessage>
         </div>
