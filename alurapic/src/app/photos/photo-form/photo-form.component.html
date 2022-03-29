@@ -1,9 +1,22 @@
 <div class="container">
     <form [formGroup]="photoForm" class="row" (submit)="upload()">
         <div class="col-md-6 text-center">
-            <input type="file" formControlName="file" accept="image/*" (change)="onChange($event)">
-            <app-vmessage text="Por favor, selecione a foto!" *ngIf="photoForm.get('file')?.errors?.['required']">
-            </app-vmessage>
+            <div class="form group" *ngIf="!preview; else previewImage">
+                <button type="button" (click)="fileInput.click()" class="btn btn-primary">
+                    <i class="fa fa-image fa-4x align-middle"></i>
+                </button>
+                <input #fileInput hidden type="file" formControlName="file" accept="image/*"
+                    (change)="onChange($event)">
+                <app-vmessage text="Por favor, selecione a foto!" *ngIf="photoForm.get('file')?.errors?.['required']">
+                </app-vmessage>
+            </div>
+
+
+            <ng-template #previewImage>
+                <div class="text-center">
+                    <app-photo [url]="preview" title="Preview"></app-photo>
+                </div>
+            </ng-template>
         </div>
 
         <div class="col-md-6">

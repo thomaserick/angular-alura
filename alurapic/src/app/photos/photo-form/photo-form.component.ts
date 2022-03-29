@@ -11,6 +11,7 @@ import { PhotoService } from '../photo/photo.service';
 export class PhotoFormComponent implements OnInit {
   photoForm!: FormGroup;
   file!: File;
+  preview!: any;
 
   constructor(
     private readonly formBuild: FormBuilder,
@@ -37,6 +38,10 @@ export class PhotoFormComponent implements OnInit {
 
   onChange(event: Event): void {
     const target = event.target as HTMLInputElement;
-    this.file = (target.files as FileList)[0];
+    const files = target.files as FileList;
+    this.file = files[0];
+    const reader = new FileReader();
+    reader.onload = () => (this.preview = reader.result);
+    reader.readAsDataURL(files[0]);
   }
 }
