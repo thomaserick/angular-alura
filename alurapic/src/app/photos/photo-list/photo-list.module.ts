@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PhotoModule } from '../photo/photo.module';
 import { FilterByDescription } from './filter-by-description.pipe';
@@ -16,6 +17,6 @@ import { SearchComponent } from './search/search.component';
     FilterByDescription,
     SearchComponent,
   ],
-  imports: [CommonModule, PhotoModule, SharedModule],
+  imports: [CommonModule, PhotoModule, SharedModule, RouterModule],
 })
 export class PhotoListModule {}

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
-import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
+import { PhotoDetailsComponent } from './photos/photo-detail/photo-details.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotolistResolver } from './photos/photo-list/photo-list.resolver';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
@@ -25,8 +25,12 @@ const routes: Routes = [
   },
   {
     path: 'p/add',
-    component: PhotoFormComponent,
+    component: PhotoDetailsComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'p/:photoId',
+    component: PhotoDetailsComponent,
   },
   { path: '**', component: NotFoundComponent },
 ];
