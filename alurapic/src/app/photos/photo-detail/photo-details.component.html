@@ -7,7 +7,11 @@
         <div class="col-lg-4 p-4">
             <small>
                 <p class="text-left break-word">{{photo.description}}</p>
-                <hr>
+                <div class="text-left mb-4">
+                    <i class="fa fa-comment-o fa-2x mr-2 ml-2"></i>{{ photo.comments }}
+                    <i photoOwnerOnly [ownedPhoto]="photo" class="fa fa-trash-o fa-2x pull-right"
+                        (click)="remove()"></i>
+                </div>
             </small>
             <app-photo-comments *ngIf="photo.allowComments; else warnning" [photoId]="photo.id"></app-photo-comments>
 

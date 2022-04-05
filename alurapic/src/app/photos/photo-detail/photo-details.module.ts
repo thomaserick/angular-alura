@@ -6,9 +6,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { PhotoModule } from '../photo/photo.module';
 import { PhotoCommentsComponent } from './photo-comments/photo-comments.component';
 import { PhotoDetailsComponent } from './photo-details.component';
+import { PhotoOwnerOnlyDirective } from './photo-owner-only/photo-owner-only.directive';
 
 @NgModule({
-  declarations: [PhotoDetailsComponent, PhotoCommentsComponent],
+  declarations: [
+    PhotoDetailsComponent,
+    PhotoCommentsComponent,
+    PhotoOwnerOnlyDirective,
+  ],
   exports: [PhotoDetailsComponent, PhotoCommentsComponent],
   imports: [
     CommonModule,
