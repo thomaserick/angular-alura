@@ -23,18 +23,34 @@ const routes: Routes = [
     resolve: {
       photos: PhotolistResolver,
     },
+    data: {
+      title: 'TimeLine',
+    },
   },
   {
     path: 'p/add',
     component: PhotoFormComponent,
     canActivate: [AuthGuard],
+    data: {
+      title: 'Foto Upload',
+    },
   },
+
   {
     path: 'p/:photoId',
     component: PhotoDetailsComponent,
+    data: {
+      title: 'Foto detalhe',
+    },
   },
   { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: 'not-found' },
+  {
+    path: '**',
+    redirectTo: 'not-found',
+    data: {
+      title: 'Not Found',
+    },
+  },
 ];
 
 @NgModule({
