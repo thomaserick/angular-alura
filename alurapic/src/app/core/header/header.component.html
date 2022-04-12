@@ -1,6 +1,16 @@
 <header class="fixed-top">
     <nav class="navbar navbar-light bg-white">
-        <a href="" class="navbar-brand">AluraPic</a>
+        <a class="navbar-brand">
+            <i tabindex="0" (keyup.space)="menu.toggle()" class="fa fa-bars mr-2" (click)="menu.toggle()"></i>
+            AluraPic
+        </a>
+
+        <app-menu #menu>
+            <ul class="list-unstyled">
+                <li><a showIfLogged [routerLink]="['p','add']">Upload</a></li>
+            </ul>
+        </app-menu>
+
 
         <div *ngIf="(user$ | async) as user; else login">
             <i class="fa fa-user-circle mr-1">
