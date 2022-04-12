@@ -11,6 +11,7 @@ import { lowerCaseValidator } from 'src/app/shared/validators/lower-case.validat
 import { NewUser } from './new-user';
 import { SignupService } from './signup.services';
 import { UserNotTakeValidatorService } from './user-not-taken.validator.service';
+import { userNamePassword } from './username-password.validator';
 
 @Component({
   selector: 'app-signup',
@@ -33,35 +34,38 @@ export class SignupComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.signupForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      userName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(30),
-          lowerCaseValidator,
+    this.signupForm = this.formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        userName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(30),
+            lowerCaseValidator,
+          ],
+          this.userNotTakeVailidator.checkUserNameTaken(),
         ],
-        this.userNotTakeVailidator.checkUserNameTaken(),
-      ],
-      fullName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(40),
+        fullName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(40),
+          ],
         ],
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(14),
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.maxLength(14),
+          ],
         ],
-      ],
-    });
+      },
+      { validator: userNamePassword }
+    );
   }
 
   signup() {

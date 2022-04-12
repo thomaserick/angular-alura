@@ -1,15 +1,19 @@
 <h4 class="text-center">Register to embrace a new world!</h4>
 <form #form="ngForm" [formGroup]="signupForm" class="form mt-4" (submit)="signup()">
     <div class="form-group">
-        <input #emailInput type="text" placeholder="email" class="form-control" formControlName="email">
-        <app-vmessage *ngIf="signupForm.get('email')?.errors?.['required'] && form.submitted" text="Email
+        <input #emailInput type="text" placeholder="E-mail" class="form-control" formControlName="email">
+        <app-vmessage
+            *ngIf="signupForm.get('email')?.errors?.['required'] && (form.submitted || signupForm.get('email')?.touched)"
+            text="Email
         é obrigatorio!"></app-vmessage>
         <app-vmessage *ngIf="signupForm.get('email')?.errors?.['email']" text="Email
         inválido!"></app-vmessage>
     </div>
     <div class="form-group">
-        <input type="text" placeholder="full name" class="form-control" formControlName="fullName">
-        <app-vmessage *ngIf="signupForm.get('fullName')?.errors?.['required'] && form.submitted" text="Nome
+        <input type="text" placeholder="Nome Completo" class="form-control" formControlName="fullName">
+        <app-vmessage
+            *ngIf="signupForm.get('fullName')?.errors?.['required'] && (form.submitted || signupForm.get('fullName')?.touched)"
+            text="Nome
         é obrigatorio!"></app-vmessage>
         <app-vmessage *ngIf="signupForm.get('fullName')?.errors?.['minlength']" text="Tamanho mínimo é 2
         !"></app-vmessage>
@@ -17,8 +21,10 @@
         !"></app-vmessage>
     </div>
     <div class="form-group">
-        <input type="text" placeholder="user name" class="form-control" formControlName="userName">
-        <app-vmessage *ngIf="signupForm.get('userName')?.errors?.['required'] && form.submitted" text="Nome
+        <input type="text" placeholder="Usuário" class="form-control" formControlName="userName">
+        <app-vmessage
+            *ngIf="signupForm.get('userName')?.errors?.['required'] && (form.submitted || signupForm.get('userName')?.touched)"
+            text="Nome de usuário
         é obrigatorio!"></app-vmessage>
         <app-vmessage *ngIf="signupForm.get('userName')?.errors?.['minlength']" text="Tamanho mínimo é 2
         !"></app-vmessage>
@@ -34,13 +40,20 @@
 
     </div>
     <div class="form-group">
-        <input type="password" placeholder="password" class="form-control" formControlName="password">
-        <app-vmessage *ngIf="signupForm.get('password')?.errors?.['required'] && form.submitted" text="Nome
+        <input type="password" placeholder="Senha" class="form-control" formControlName="password">
+        <app-vmessage
+            *ngIf="signupForm.get('password')?.errors?.['required'] && (form.submitted || signupForm.get('password')?.touched)"
+            text="Password
         é obrigatorio!"></app-vmessage>
         <app-vmessage *ngIf="signupForm.get('password')?.errors?.['minlength']" text="Tamanho mínimo é 8
         !"></app-vmessage>
         <app-vmessage *ngIf="signupForm.get('password')?.errors?.['maxlength']" text="Tamanho máximo é 14
         !"></app-vmessage>
+
+        <app-vmessage *ngIf="signupForm.errors?.['userNamePassword']" text="Usuário e Senha devem ser diferntes!">
+        </app-vmessage>
+
+
     </div>
 
     <button class="btn btn-primary btn-block">Register</button>
