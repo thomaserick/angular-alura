@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PhotosModule } from './photos/photos.module';
+import { ErrorsModule } from './shared/errors/errors.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from './shared/shared.module';
     PhotosModule,
     SharedModule,
     CoreModule,
-    AppRoutingModule,    
+    AppRoutingModule,
+    ErrorsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

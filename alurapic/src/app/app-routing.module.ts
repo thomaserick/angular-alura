@@ -5,7 +5,8 @@ import { PhotoDetailsComponent } from './photos/photo-detail/photo-details.compo
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotolistResolver } from './photos/photo-list/photo-list.resolver';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { GlobalErrorComponent } from './shared/errors/global-error/global-error.component';
+import { NotFoundComponent } from './shared/errors/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -43,13 +44,23 @@ const routes: Routes = [
       title: 'Foto detalhe',
     },
   },
-  { path: 'not-found', component: NotFoundComponent },
   {
-    path: '**',
-    redirectTo: 'not-found',
+    path: 'error',
+    component: GlobalErrorComponent,
+    data: {
+      title: 'Error',
+    },
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
     data: {
       title: 'Not Found',
     },
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
   },
 ];
 
