@@ -15,7 +15,7 @@ const routes: Routes = [
     redirectTo: 'home',
   },
   {
-    path: 'home',
+    path: 'home',    
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
@@ -32,6 +32,7 @@ const routes: Routes = [
     path: 'p/add',
     component: PhotoFormComponent,
     canActivate: [AuthGuard],
+  
     data: {
       title: 'Foto Upload',
     },

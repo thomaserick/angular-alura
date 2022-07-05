@@ -23,8 +23,10 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
+    console.log(state);
+    console.log(route);
     if (!this.userService.isLogged()) {
-      this.router.navigate(['']);
+      this.router.navigate([''], { queryParams: { formUrl: state.url } });
       return false;
     }
     return true;
