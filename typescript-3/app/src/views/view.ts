@@ -1,3 +1,5 @@
+import { inspect } from "../decorators/inspecionar.js";
+
 export abstract class View<T> {
   protected elemento: HTMLElement;
   private escapar = false;
@@ -14,6 +16,7 @@ export abstract class View<T> {
     }
   }
 
+  @inspect()
   public update(model: T): void {
     const t1 = performance.now();
 

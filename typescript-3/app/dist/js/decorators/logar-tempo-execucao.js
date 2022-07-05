@@ -12,7 +12,7 @@ export function logarTempoDeExecucao(emSegundos = false) {
             const retorno = metodoOriginal.apply(this, args);
             const t2 = performance.now();
             console.log(`${propertyKey}, tempo de execução: ${(t2 - t1) / devisor} ${unidade}`);
-            retorno;
+            return retorno;
         };
         return description;
     };

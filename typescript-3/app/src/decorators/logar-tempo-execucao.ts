@@ -18,7 +18,7 @@ export function logarTempoDeExecucao(emSegundos: boolean = false) {
       console.log(
         `${propertyKey}, tempo de execução: ${(t2 - t1) / devisor} ${unidade}`
       );
-      retorno;
+      return retorno;
     };
 
     return description;
